@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/main_inside.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js" 
+  integrity="sha512-lIKG1kC5TMb1Zx32vdz1n31YJMZRknVY20U9MJ28hD3y2c0OKN0Ce5NhJji78v8zX5UOSsm+MTBOcJt7yMBnSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>  window.onbeforeunload = function () {window.scrollTo(0, 0);};</script>
+  <title>Whats going on</title>
+</head>
+
+
+<body>
+    {% if current_user.is_authenticated %}
+           <a href="{{ url_for('logout') }}" class="logout">Atsijungti</a>
+    {% else %}
+    {%endif%}
+    <canvas class="webgl"></canvas>
+        <section class="section s">
+            <div style="margin-left: 5rem;">
+            <h4 id="title1" class="visible">
+                <span><h6>{{names[0].purpose}}</h6></span>
+                "{{names[0].name}}"
+                <span style="text-align: right;"><h6>{{names[0].what}}</h6></h4>
+            </div>
+            <div style="width:35rem; margin:1rem 10rem;">
+                <p id="text" hidden>____{{texts[0].discription}}____</p>
+                <p id="text2" hidden>____{{texts[1].discription}}____</p>
+                <p id="text3" hidden>____{{texts[2].discription}}____</p>
+                <h6 id="by_letter_output1" class="by_letter_output"></h6>
+                <h6 id="by_letter_output2" class="by_letter_output"></h6>
+                <h6 id="by_letter_output3" class="by_letter_output"></h6>
+            </div> 
+        </section>
+    <section class="section">
+    </section> 
+
+    <section class="section">      
+    </section> 
+
+    <section class="section">   
+    </section> 
+
+    <section class="section">     
+    </section> 
+
+     <section class="section">    
+    </section> 
+
+    <section class="section">
+    </section> 
+
+    <section class="section">  
+    </section> 
+
+    <section class="section"> 
+    </section> 
+
+    <script type="module" src="{{url_for('static', filename='js/main_inside.js')}}"></script>
+
+
+    <video style="position: absolute; display:none" id="v1" width="320" height="240" > 
+            <source src="{{ url_for('static', filename='video/' + videos[2].name)}}" type="video/mp4">
+    </video>
+    <video style="position: absolute; display:none" id="v2" width="320" height="240" > 
+            <source src="{{ url_for('static', filename='video/' + videos[1].name)}}" type="video/mp4">
+    </video>
+    <video style="position: absolute; display:none" id="v3" width="320" height="240" > 
+        <source src="{{ url_for('static', filename='video/' + videos[0].name)}}" type="video/mp4">       
+    </video>
+    <video style="position: absolute; display:none" id="v4" width="320" height="240" > 
+            <source src="{{ url_for('static', filename='video/' + videos[3].name)}}" type="video/mp4">
+    </video>
+    <video style="position: absolute; display:none" id="v5" width="320" height="240" > 
+            <source src="{{ url_for('static', filename='video/' + videos[4].name)}}" type="video/mp4">
+    </video>
+    <video style="position: absolute; display:none" id="v6" width="320" height="240" > 
+            <source src="{{ url_for('static', filename='video/' + videos[5].name)}}" type="video/mp4">
+    </video>
+    <video style="position: absolute; display:none" id="v7" width="320" height="240" > 
+        <source src="{{ url_for('static', filename='video/' + videos[6].name)}}" type="video/mp4">
+    </video>
+    <video style="position: absolute; display:none" id="v8" width="320" height="240" > 
+        <source src="{{ url_for('static', filename='video/' + videos[7].name)}}" type="video/mp4">
+    </video>
+    <video style="position: absolute; display:none" id="v9" width="320" height="240" > 
+        <source src="{{ url_for('static', filename='video/' + videos[8].name)}}" type="video/mp4">
+    </video>
+    <video style="position: absolute; display:none" id="v10" width="320" height="240" > 
+        <source src="{{ url_for('static', filename='video/' + videos[9].name)}}" type="video/mp4">
+    </video>
+    
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+      <div id="overlayContainer">
+            <div id="loginOverlay">
+                  <form method="POST" id="loginForm" action="">
+                        {{ form.hidden_tag() }}
+                        <div class="nameButtonContainer">
+                              <div class="pageName">
+                                    <h1>JOIN</h1>
+                              </div>
+                              <button type="button" class="icontainer subButton1"><a class="buttonLink"
+                                          href="{{ url_for('log_in') }}"></a></button>
+                        </div>
+
+                        <div class="icontainer">
+                              {% if form.name.errors %}
+                              {{ form.name(class="i is-invalid" , placeholder = "name") }}
+                              <div class="invalid-feedback">
+                                    {% for error in form.name.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                              </div>
+                              {% else %}
+                              {{ form.name(class="i", placeholder = "name") }}
+                              {% endif %}
+                        </div>
+
+                        <div class="icontainer">
+                              {% if form.email.errors %}
+                              {{ form.email(class="i is-invalid", placeholder = "email") }}
+                              <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                              </div>
+                              {% else %}
+                              {{ form.email(class="i" , placeholder = "email") }}
+                              {% endif %}
+                        </div>
+
+                        <div class="icontainer">
+                              {% if form.password.errors %}
+                              {{ form.password(class="i is-invalid", placeholder = "password") }}
+                              <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                              </div>
+                              {% else %}
+                              {{ form.password(class="i" , placeholder = "password") }}
+                              {% endif %}
+                        </div>
+
+                        <div class="icontainer">
+                              {% if form.repeated_password.errors %}
+                              {{ form.repeated_password(class="i is-invalid", placeholder = "repeat password") }}
+                              <div class="invalid-feedback" style="position :absolute; bottom: 15.4rem;">
+                                    {% for error in form.repeated_password.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                              </div>
+                              {% else %}
+                              {{ form.repeated_password(class="i" , placeholder = "repeat password") }}
+                              {% endif %}
+                        </div>
+                        <div>
+                              {{ form.submit (class="icontainer subButton2 pointer" ) }}
+                        </div>
+                  </form>
+
+            </div>
+      </div>
+      <div id="threejs-container"></div>
+
+
+      {% endblock content %}

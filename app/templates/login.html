@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="overlayContainer">
+    <div id="loginOverlay">
+        <form id="loginForm" method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div class="nameButtonContainer">
+                <div class="pageName">
+                    <h1>LOG IN</h1>
+
+                </div>
+                <button class="icontainer subButton1" type="submit"><a class="buttonLink"
+                        href="{{ url_for('register') }}"></a></button>
+            </div>
+
+            <div class="icontainer">
+                {% if form.email.errors %}
+                {{ form.email(class="i" , placeholder = "email") }}
+                <div class="invalid-feedback" style="position :absolute;">
+                    {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.email(class="i", placeholder = "email") }}
+                {% endif %}
+            </div>
+
+            <div class="icontainer">
+                {% if form.password.errors %}
+                {{ form.password(class="i is-invalid" , placeholder = "password") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.password(class="i" , placeholder = "password") }}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.submit(class="icontainer subButton2 pointer") }}
+            </div>
+        </form>
+
+    </div>
+</div>
+<div id="threejs-container"></div>
+<div id="threejs-container"></div>
+
+{% endblock content %}
